@@ -220,8 +220,7 @@ public class OltHybridCacheTests : IAsyncLifetime
         var provider = BuildProvider();
         var cache = provider.GetRequiredService<IOltHybridCache>();
 
-        await Assert.ThrowsAsync<ArgumentException>(async () =>
-            await cache.GetAsync<string>("   "));
+        await Assert.ThrowsAsync<ArgumentException>(async () =>  await cache.GetAsync<string>("   "));
     }
 
     [Fact]

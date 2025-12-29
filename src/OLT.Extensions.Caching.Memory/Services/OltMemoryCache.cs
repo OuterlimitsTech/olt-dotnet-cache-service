@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
-using ZiggyCreatures.Caching.Fusion;
 
 namespace OLT.Core;
 
