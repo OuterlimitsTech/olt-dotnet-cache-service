@@ -8,7 +8,6 @@
   <Folder Name="/src/">
     <Project Path="src/OLT.Extensions.Caching.Abstractions/OLT.Extensions.Caching.Abstractions.csproj" />
     <Project Path="src/OLT.Extensions.Caching.Memory/OLT.Extensions.Caching.Memory.csproj" />
-    <Project Path="src/OLT.Extensions.Caching.Redis/OLT.Extensions.Caching.Redis.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <File Path="tests/Directory.Build.props" />

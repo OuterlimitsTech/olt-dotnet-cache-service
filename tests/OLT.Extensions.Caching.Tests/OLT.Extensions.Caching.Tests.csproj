@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OLT.Extensions.Caching.Memory\OLT.Extensions.Caching.Memory.csproj" />
-    <ProjectReference Include="..\..\src\OLT.Extensions.Caching.Redis\OLT.Extensions.Caching.Redis.csproj" />
   </ItemGroup>
 
 </Project>
