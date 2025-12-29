@@ -1,0 +1,48 @@
+<Project>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<Company>OuterLimits Technologies, Inc</Company>
+		<Product>OLT Cache Services Libraries</Product>
+		<Authors>Chris Straw</Authors>
+		<Copyright>Copyright © 2003-2026, OuterLimits Technologies, Inc Plainfield, IN</Copyright>
+		<RepositoryUrl>https://github.com/OuterlimitsTech/olt-dotnet-cache-service</RepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<DebugType>embedded</DebugType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<NoWarn>$(NoWarn);S110</NoWarn>
+		<NoWarn>$(NoWarn);S2436</NoWarn>
+		<NoWarn>$(NoWarn);S5332</NoWarn>
+		<NoWarn>$(NoWarn);S3925</NoWarn>
+	</PropertyGroup>
+
+</Project>

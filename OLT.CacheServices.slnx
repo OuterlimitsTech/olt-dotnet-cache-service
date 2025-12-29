@@ -6,6 +6,7 @@
     <File Path=".github/workflows/release.yml" />
   </Folder>
   <Folder Name="/src/">
+    <File Path="src/Directory.Build.props" />
     <Project Path="src/OLT.Extensions.Caching.Abstractions/OLT.Extensions.Caching.Abstractions.csproj" />
     <Project Path="src/OLT.Extensions.Caching.Memory/OLT.Extensions.Caching.Memory.csproj" />
   </Folder>
