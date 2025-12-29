@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/.build/">
+    <File Path=".config/dotnet-tools.json" />
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/release.yml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/OLT.Extensions.Caching.Abstractions/OLT.Extensions.Caching.Abstractions.csproj" />
+    <Project Path="src/OLT.Extensions.Caching.Memory/OLT.Extensions.Caching.Memory.csproj" />
+    <Project Path="src/OLT.Extensions.Caching.Redis/OLT.Extensions.Caching.Redis.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <File Path="tests/Directory.Build.props" />
+    <Project Path="tests/OLT.Extensions.Caching.Tests/OLT.Extensions.Caching.Tests.csproj" />
+  </Folder>
+</Solution>
