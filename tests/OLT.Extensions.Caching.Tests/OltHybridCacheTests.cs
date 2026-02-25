@@ -14,15 +14,16 @@ public class OltHybridCacheTests : IAsyncLifetime
 
     public OltHybridCacheTests()
     {
-        _redisContainer = new RedisBuilder().Build();
+        _redisContainer = new RedisBuilder("redis:8.0").Build();        
     }
 
-    public async Task InitializeAsync()
+
+    public async ValueTask InitializeAsync()
     {
         await _redisContainer.StartAsync();
     }
 
-    public async Task DisposeAsync()
+    public async ValueTask DisposeAsync()
     {
         await _redisContainer.StopAsync();
     }
@@ -615,6 +616,7 @@ public class OltHybridCacheTests : IAsyncLifetime
 
         Assert.NotEqual(default, capturedToken);
     }
+
 
     private class TestScopedService
     {
