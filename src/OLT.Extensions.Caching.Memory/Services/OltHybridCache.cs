@@ -6,13 +6,13 @@ namespace OLT.Core;
 
 public class OltHybridCache : IOltHybridCache
 {
-    private readonly IServiceScopeFactory _serviceScopeFactory;
+    private readonly IServiceScopeFactory _scopeFactory;
     private readonly IFusionCache _cache;
 
-    public OltHybridCache(IFusionCache cache, IServiceScopeFactory serviceScopeFactory)
+    public OltHybridCache(IFusionCache cache, IServiceScopeFactory scopeFactory)
     {
         _cache = cache ?? throw new ArgumentNullException(nameof(cache));
-        _serviceScopeFactory = serviceScopeFactory;
+        _scopeFactory = scopeFactory;
     }
 
     /// <summary>
@@ -58,14 +58,14 @@ public class OltHybridCache : IOltHybridCache
 
         var options = duration.HasValue ? _cache.CreateEntryOptions(duration: duration) : _cache.DefaultEntryOptions;
 
-        await using var scope = _serviceScopeFactory.CreateAsyncScope();
-
-        //Use scoped IFusionCache here
-        var cache = scope.ServiceProvider.GetRequiredService<IFusionCache>();
 
         return await _cache.GetOrSetAsync<TValue>(
            key,
-           async (ctx, ct) => await factory(scope.ServiceProvider, new OltHybridCacheContext<TValue>(ctx, ct)),
+            async (ctx, ct) =>
+            {
+                await using var scope = _scopeFactory.CreateAsyncScope();
+                return await factory(scope.ServiceProvider, new OltHybridCacheContext<TValue>(ctx, ct));
+            },
            options,
            cancellationToken);
 
