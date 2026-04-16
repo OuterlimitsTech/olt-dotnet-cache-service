@@ -39,7 +39,7 @@ public class OltHybridCache : IOltHybridCache
         if (cacheItemPriority.HasValue)
             options.SetPriority(cacheItemPriority.Value);
 
-        await _cache.SetAsync(key, value, token: cancellationToken);
+        await _cache.SetAsync(key, value, options: options, token: cancellationToken);
     }
 
     public async Task<TValue?> GetAsync<TValue>(string key, CancellationToken cancellationToken = default)
